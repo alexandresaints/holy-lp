@@ -1,5 +1,4 @@
 import { Inter } from "next/font/google";
-import Head from "next/head";
 import "./globals.css";
 import GoogleTagManager from "@/components/Pixel/GooglePixel";
 
@@ -7,18 +6,16 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Holy - Prospere sua igreja",
-  description: "Organize suas finanças e membros em um só lugar e prosper sua igreja utilizando o Holy",
+  description: "Organize as finanças, os membros e as células da sua igreja em um só lugar e prospere utilizando o Holy",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
+    <html lang="pt-BR">
+      <body className={inter.className}>
         <GoogleTagManager/>
-      </Head>
-      <body className={inter.className}>{children}</body>
+        {children}
+      </body>
     </html>
   );
 }

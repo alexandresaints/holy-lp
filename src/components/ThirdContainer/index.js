@@ -1,48 +1,36 @@
-import Header from "../FirstContainer/Header"
-import foto1 from '../../../public/pic.png'
 import Image from "next/image"
-import { MdOutlineArrowOutward  } from "react-icons/md";
-import { BiCheckCircle } from "react-icons/bi";
-import Link from "next/link";
+import { BiPlus } from "react-icons/bi"
+import foto1 from '../../../public/pic.png'
+
+const roles = [
+    { label: "PASTOR", title: "Visão completa da igreja.", desc: "Finanças, membros e células, tudo num painel só." },
+    { label: "TESOUREIRO", title: "Contas sempre em dia.", desc: "Registre entradas e saídas sem depender de planilha." },
+    { label: "LÍDER DE CÉLULA", title: "Sua célula, organizada.", desc: "Presença, visitantes e aviso de multiplicação." },
+]
 
 export const ThirdContainer = () => {
-    return(
-        <div className="bg-[#ffff] w-full overflow-x-hidden overflow-y-hidden"> 
-            <div className="bg-[#F8F9F8] min-h-[100vh] w-full py-10 overflow-x-hidden overflow-y-hidden rounded-t-[50px]"> 
-                    <div className="flex lg:flex-row flex-col justify-evenly items-center w-[75vw] mx-auto">
-                        <div className="flex-col flex">
-                            <h1 className="lg:text-6xl text-3xl lg:text-left w-[350px] text-center text-black text-left lg:w-[700px] mx-auto font-[500] mt-20">Financie, organize e gerencie</h1>
-                                <ul className="flex flex-col mt-20">
-                                    <li className="flex flex-row items-center">
-                                        <BiCheckCircle  size={28} color="#4abd5d"/>                                        
-                                        <h2 className="text-black font-light mt-3 lg:text-lg text-left ml-2 w-[300px] lg:w-[550px]">
-                                            Gerencie as finanças da sua igreja com facilidade e transparência.
-                                        </h2>
-                                    </li>
-                                    <li className="flex flex-row items-center">
-                                        <BiCheckCircle  size={28} color="#4abd5d"/>                                        
-                                        <h2 className="text-black font-light mt-3 lg:text-lg text-left ml-2 w-[300px] lg:w-[550px]">
-                                            Mantenha um registro atualizado dos membros e acompanhe o envolvimento.
-                                        </h2>
-                                    </li>
-                                    <li className="flex flex-row items-center">
-                                        <BiCheckCircle  size={28} color="#4abd5d"/>                                        
-                                        <h2 className="text-black font-light mt-3 lg:text-lg text-left ml-2 w-[300px] lg:w-[550px]">
-                                            Promova o crescimento e a união da sua comunidade.
-                                        </h2>
-                                    </li>
-                                </ul>
-                                    <div className="flex flex-row mt-20 ">
-                                        <Link href='https://play.google.com/store/apps/details?id=com.nextsolutions.holy' target="_blank" className="flex flex-row mx-auto mb-20 lg:ml-20 bg-gray-900 py-5 px-6 w-[270px] rounded-full cursor-pointer justify-between shadow-lg">
-                                            <p className="text-white">
-                                                Baixar o app
-                                            </p>
-                                            <MdOutlineArrowOutward size={28} color="white"/>
-                                        </Link>
-                                    </div>
+    return (
+        <div className="w-full py-24" style={{ background: "#0B0B0F" }}>
+            <div className="w-[88vw] max-w-[1100px] mx-auto text-center">
+
+                <div className="flex items-center justify-center gap-1.5 font-medium text-sm mb-4" style={{ color: "#7C8CFF" }}>
+                    PARA TODA LIDERANÇA <BiPlus size={16} />
+                </div>
+                <h2 className="text-3xl md:text-[2.75rem] font-bold text-white leading-tight mb-14 mx-auto max-w-2xl">
+                    Feito para quem lidera, do púlpito à célula.
+                </h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-left mb-16">
+                    {roles.map((r) => (
+                        <div key={r.label} className="rounded-[24px] p-7" style={{ background: "#15182B", border: "1px solid #23273F" }}>
+                            <p className="text-xs font-semibold mb-3 tracking-wide" style={{ color: "#7C8CFF" }}>{r.label}</p>
+                            <h3 className="text-xl font-semibold text-white mb-2">{r.title}</h3>
+                            <p className="text-sm text-white/55">{r.desc}</p>
                         </div>
-                        <Image src={foto1} className="float-animation" alt="couple" width={600}/>
-                    </div>
+                    ))}
+                </div>
+
+                <Image src={foto1} alt="Tela do Holy" width={380} className="float-animation mx-auto" />
             </div>
         </div>
     )
